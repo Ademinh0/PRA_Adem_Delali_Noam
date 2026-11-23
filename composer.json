@@ -1,0 +1,17 @@
+{
+    "name": "madem/gros_projet",
+    "authors": [
+        {
+            "name": "Ademinh0",
+            "email": "madem1478@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\Models\\": "models/",
+            "App\\Controllers\\": "controllers/"
+        },
+        "files": ["helper/fonction.php"]
+    }
+}
