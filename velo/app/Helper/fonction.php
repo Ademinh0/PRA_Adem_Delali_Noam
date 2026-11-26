@@ -1,10 +1,10 @@
-<?php 
-namespace App\Helper;    //render(), estConnecte(), exigerRole()
+<?php
+
+//render(), estConnecte(), exigerRole()
 
 
 // charger la vue demandée puis l'insère dans layout.php
-function render(string $vue,
-array $donnees=[])
+function render(string $vue, array $donnees = [])
 {
     extract($donnees);
 
@@ -29,7 +29,17 @@ function exigerConnexion(): void
     }
 }
 
-// page erreur 
+// oblige à être employé ou admin, un usager est renvoyé à l'accueil
+function exigerEmploye(): void
+{
+    exigerConnexion();
+
+    if ($_SESSION['role'] === 'user') {
+        header('Location: /');
+        exit;
+    }
+}
+
 function page404(): void
 {
     http_response_code(404);

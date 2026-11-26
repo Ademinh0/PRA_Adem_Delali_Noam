@@ -1,13 +1,11 @@
+<h1>Connexion</h1>
 
-// le formulaire de connexion
-
-<h1>Connexion </h1>
 <?php if ($erreur !== ''): ?>
-    <p><?= ($erreur) ?></p>
+    <p><?= $erreur ?></p>
 <?php endif; ?>
 
 <form method="post" action="/login">
-    <label for="login">Connexion</label>
+    <label for="login">Login</label>
     <input type="text" id="login" name="login" required>
 
     <label for="password">Mot de passe</label>

@@ -10,7 +10,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/"
-                },
-        "files": ["helper/fonction.php"]
+        },
+        "files": ["app/Helper/fonction.php"]
     }
 }
