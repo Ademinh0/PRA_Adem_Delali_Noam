@@ -32,6 +32,8 @@ class BikeController
             }
         }
 
+
+        
         render(
             'bikes/form',
             [
@@ -41,4 +43,21 @@ class BikeController
             ]
         );
     }
+
+    // Affiche les vélos disponibles sur la page publique.
+    public function index(): void
+    {
+    $bikeModel = new BikeModel();
+
+    $velos = $bikeModel->findAvailable();
+
+    render(
+        'bikes/index',
+        [
+            'velos' => $velos,
+            'title' => 'Nos vélos disponibles'
+        ]
+    );
+}
+
 }

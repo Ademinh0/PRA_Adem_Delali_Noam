@@ -26,5 +26,17 @@ class BikeModel
             }
             throw $e;
         }
+        
     }
+
+// Récupère tous les vélos disponibles dans la base de données.
+public function findAvailable(): array
+{
+    $pdo = Database::getInstance();
+
+    $sql = "SELECT * FROM bikes WHERE availability = 1"; // le 1 represénte true et le 0 false 
+
+    return $pdo->query($sql)->fetchAll();
+}
+
 }

@@ -6,5 +6,5 @@ return [
     'dbname'   => 'velo',
     'charset'  => 'utf8mb4',
     'user'     => 'root',
-    'password' => '',
+    'password' => 'root',
 ];
