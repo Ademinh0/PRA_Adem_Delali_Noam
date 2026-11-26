@@ -1,10 +1,12 @@
+
 <h1>Connexion</h1>
 
 <?php if ($erreur !== ''): ?>
-    <p><?= $erreur ?></p>
+    <p><?= ($erreur) ?></p>
 <?php endif; ?>
 
-<form method="post" action="/login">
+<form method="post" action="index.php?page=login">
+
     <label for="login">Login</label>
     <input type="text" id="login" name="login" required>
 
@@ -12,4 +14,5 @@
     <input type="password" id="password" name="password" required>
 
     <button type="submit">Se connecter</button>
+
 </form>

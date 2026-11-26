@@ -1,9 +1,10 @@
+-- Active: 1772525806919@@127.0.0.1@3306@velo
 CREATE DATABASE IF NOT EXISTS velo utf8mb4;
 USE velo;
 
-/* DROP TABLE IF EXISTS reservations;
+ DROP TABLE IF EXISTS reservations;
 DROP TABLE IF EXISTS bikes;
-DROP TABLE IF EXISTS users;*/ 
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
    user_id INT AUTO_INCREMENT,
@@ -38,13 +39,17 @@ CREATE TABLE reservations (
    FOREIGN KEY (bike_id) REFERENCES bikes(bike_id)
 );
 
+
 INSERT INTO users (firstname, lastname, login, password, role) VALUES
-('Admin',  'Mairie',  'admin','Admin123!', 'admin'),
-('Sophie', 'Martin',  'employe1','Admin123!', 'employee'),
-('Karim',  'Benali',  'employe2','Admin123!', 'employee'),
-('Marie',  'Dupont',  'marie.dupont','Admin123!', 'user'),
-('Lucas',  'Bernard', 'lucas.bernard','Admin123!', 'user'),
-('Emma',   'Petit',   'emma.petit','Admin123!', 'user');
+('Admin',  'Mairie',  'admin', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'admin'),
+('Sophie', 'Martin',  'employe1', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'employee'),
+('Karim',  'Benali',  'employe2', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'employee'),
+('Marie',  'Dupont',  'marie.dupont', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'user'),
+('Lucas',  'Bernard', 'lucas.bernard', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'user'),
+('Emma',   'Petit',   'emma.petit', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'user');
+/* Identifiants de démonstration :
+- Login : admin
+- Mot de passe : Admin123!*/
 
 INSERT INTO bikes (registration_number, availability, photo) VALUES
 ('VEL-001', 1, 'velo1.jpg'),

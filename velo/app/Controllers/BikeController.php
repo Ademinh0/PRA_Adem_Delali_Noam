@@ -14,11 +14,11 @@ class BikeController
 
         // recuperation du formulaire
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $immatriculation = trim($_POST['registration_number'] ?? '');
-            $disponible = isset($_POST['availability']) ? 1 : 0;
-            $photo = trim($_POST['photo'] ?? '');
+            $immatriculation = empty($_POST['registration_number'] ?? '');
+            $disponible = empty($_POST['availability']) ? 1 : 0; // vrai ou faux 
+            $photo = empty($_POST['photo'] ?? '');
 
-            // insertion nouveau vélo 
+            // insertion nouveau vélo
             if ($immatriculation === '' || $photo === '') {
                 $erreur = "L'immatriculation et le nom de la photo sont obligatoires";
             } else {
