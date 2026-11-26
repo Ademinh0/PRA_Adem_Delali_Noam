@@ -20,8 +20,12 @@ $page = $_GET['page'] ?? 'bikes';
 match ($page) {
     'login'               => $userController->login(),//connexion
     'logout'              => $userController->logout(),//deconnexion
-    'admin/reservations'  => $reservationController->index(),//reservation pour les admins 
+    'admin/reservations'  => $reservationController->index(),//Afficher les réservations
     'admin/velos/ajouter' => $bikeController->create(),// ajout d'un vélo pour les admins 
     'bikes' => $bikeController->index(), // affiche les vélo dans la page publique 
+    'admin/reservations/traiter' => $reservationController->traiter(),// Valider ou refuser les reservations 
+    'admin/reservations/supprimer' => $reservationController->supprimer(),// Supprimer une réservation
+    'admin/comptes' => $userController->index(),// Afficher les comptes
+    'admin/comptes/supprimer' => $userController->delete(),// 	Supprimer un compte
     default               => page404(),
 };
