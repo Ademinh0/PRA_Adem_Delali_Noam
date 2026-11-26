@@ -4,8 +4,7 @@ namespace App\Models;
 
 class UserModel
 {
-    public function findByLogin(string $login): array|false
-    {
+    public function findByLogin(string $login){
         $pdo = Database::getInstance();
         $sql = 'SELECT * FROM users WHERE login = :login';
         $stmt = $pdo->prepare($sql);

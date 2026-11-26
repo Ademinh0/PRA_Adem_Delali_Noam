@@ -11,7 +11,7 @@ CREATE TABLE users (
    lastname VARCHAR(255) NOT NULL,
    login VARCHAR(50) NOT NULL,
    password VARCHAR(255) NOT NULL,
-   role ENUM('user', 'employee', 'admin') NOT NULL DEFAULT 'user',
+   role VARCHAR(255) NOT NULL, /* admin , user , employee*/ 
    PRIMARY KEY (user_id),
    UNIQUE (login)
 );
