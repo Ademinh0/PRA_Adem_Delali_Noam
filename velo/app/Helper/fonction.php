@@ -1,7 +1,6 @@
-
 <?php
 
-//render(), estConnecte(), exigerRole()
+//render(), estConnecte(), exigerConnexion(), exigerEmploye(), page404()
 
 // charger la vue demandée puis l'insère dans layout.php
 function render(string $vue, array $donnees = [])
@@ -20,7 +19,7 @@ function estConnecte(): bool
     return isset($_SESSION['user_id']);
 }
 
-// obliger le client ( employee) a se connecter au début  redirection page login
+// obliger le client ou bien admin/employée a se connecter au début de sa visite. 
 function exigerConnexion(): void
 {
     if (!estConnecte()) {
@@ -29,14 +28,13 @@ function exigerConnexion(): void
     }
 }
 
-// oblige à être employé ou admin, un usager ne peut pas accéder au tableau de bord
+// oblige à être employé ou admin, cette fonction va etre utilisé partout pour vérifier que ce n'est pas un usager ou un client qui est accès au tableau de bord 
 function exigerEmploye(): void
 {
     exigerConnexion();
 
-    // On vérifie que le rôle est bien employee ou admin.
-    if ($_SESSION['role'] !== 'employee' || $_SESSION['role'] !== 'admin') {
-        header('Location: /login');
+    if ($_SESSION['role'] !== 'employee' && $_SESSION['role'] !== 'admin') {
+        header('Location: index.php?page=login');
         exit;
     }
 }

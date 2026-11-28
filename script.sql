@@ -1,5 +1,5 @@
 -- Active: 1772525806919@@127.0.0.1@3306@velo
-CREATE DATABASE IF NOT EXISTS velo utf8mb4;
+CREATE DATABASE IF NOT EXISTS velo CHARACTER SET utf8mb4;
 USE velo;
 
  DROP TABLE IF EXISTS reservations;
@@ -41,7 +41,7 @@ CREATE TABLE reservations (
 
 
 INSERT INTO users (firstname, lastname, login, password, role) VALUES
-('Admin',  'Mairie',  'admin', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'admin'),
+('Admin',  'Mairie',  'admin', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'admin'), /* mot de passe haché */ 
 ('Sophie', 'Martin',  'employe1', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'employee'),
 ('Karim',  'Benali',  'employe2', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'employee'),
 ('Marie',  'Dupont',  'marie.dupont', '$2y$12$JOjTP7a1M85yn5aqTQQXdOPI/PxgxlVkIgw18NwSWaVDependBhUq', 'user'),

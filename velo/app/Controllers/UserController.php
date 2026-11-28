@@ -45,16 +45,8 @@ class UserController
             ]
         );
     }
-
-    public function tableauDeBord(): void
-    {
-        exigerEmploye();
-
-        // montrer qui est connécté a la session
-        echo 'Connecté : ' . $_SESSION['login'] . ' (' . $_SESSION['role'] . ') '
-        . '<a href="index.php?page=logout">Déconnexion</a>';
-    }
-
+    
+    
     public function logout(): void
     {
         // On vide les informations de session.

@@ -85,5 +85,7 @@ class ReservationController
 
         header('Location: index.php?page=admin/reservations');
         exit;
+
+        
     }
 }

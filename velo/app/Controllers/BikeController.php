@@ -14,9 +14,11 @@ class BikeController
 
         // recuperation du formulaire
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $immatriculation = empty($_POST['registration_number'] ?? '');
-            $disponible = empty($_POST['availability']) ? 1 : 0; // vrai ou faux 
-            $photo = empty($_POST['photo'] ?? '');
+            $immatriculation = trim($_POST['registration_number'] ?? '');// si la registration number existe on prend sa valeur sinon chaine vide de plus con retire les espaces en début et fin de chaines pour éviter les beugs ( trim)
+            $disponible = isset($_POST['availability']) ? 1 : 0; // true ou false ( 1 ou 0) isset va vérifier si la disponibilité a bien été coché 
+            $photo = trim($_POST['photo'] ?? ''); // pareil que pour le $immatriculation 
+            
+  
 
             // insertion nouveau vélo
             if ($immatriculation === '' || $photo === '') {
